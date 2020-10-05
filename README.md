@@ -1,4 +1,4 @@
-# GCNNMatch
+# GCNNMatch- Under construction repo
 
 This repository is the official code implementation of the paper GCNNMatch: [Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization](https://arxiv.org/abs/2010.00067). 
 
