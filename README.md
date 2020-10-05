@@ -1,4 +1,4 @@
-# GCNNMatch
+# GCNNMatch- Under construction repo
 
 This repository is the official code implementation of the paper GCNNMatch: [Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization](https://arxiv.org/abs/2010.00067). 
 
@@ -35,3 +35,4 @@ The method has been tested on MOT16 & 17 Datasets performing at [57% MOTA](https
 * Result: Testing will start and produce txt files and videos saved in /output. Settings can be changed in tracking.py
 
 For Benchmark evaluation the pre-processed with Tracktor detection files from [this repo](https://github.com/dvl-tum/mot_neural_solver) were used.
+
