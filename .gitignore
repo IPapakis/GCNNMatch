@@ -1,6 +1,2 @@
 __pycache__
 network/__pycache__
-models/*
-logfiles/*
-output/*
-data/*
