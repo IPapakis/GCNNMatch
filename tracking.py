@@ -10,11 +10,11 @@ import pprint
 
 def get_data(info, set):
     if set=='training':
-        detections = np.loadtxt("../../data/MOT17/train/MOT17-{}-{}/gt/gt.txt".format(info[0], info[1]), delimiter=',')
-        images_path = "../../data/MOT17/train/MOT17-{}-{}/img1".format(info[0], info[1])
+        detections = np.loadtxt("/data/MOT17/train/MOT17-{}-{}/gt/gt.txt".format(info[0], info[1]), delimiter=',')
+        images_path = "/data/MOT17/train/MOT17-{}-{}/img1".format(info[0], info[1])
     elif set=='testing':
-        detections = np.loadtxt("../../data/MOT17/test/MOT17-{}-{}/det/det.txt".format(info[0], info[1]), delimiter=',')
-        images_path = "../../data/MOT17/test/MOT17-{}-{}/img1".format(info[0], info[1])
+        detections = np.loadtxt("/data/MOT17/test/MOT17-{}-{}/det/det.txt".format(info[0], info[1]), delimiter=',')
+        images_path = "/data/MOT17/test/MOT17-{}-{}/img1".format(info[0], info[1])
     return detections, images_path
 
 if __name__ == "__main__":
@@ -50,41 +50,41 @@ if __name__ == "__main__":
         detector = ["FRCNN"] # specify a detector just to direct to one of the MOT folders
 
         # Option 1: If graph data not built, loop through sequence and get training data
-        # print('\n')
-        # print('Training Data')
-        # data_list_train = []
-        # for s in range(len(train_seq)):
-        #     for d in range(len(detector)):
-        #         print('Sequence: ' + train_seq[s])
-        #         detections, images_path = get_data([train_seq[s], detector[d]], "training")
-        #         list = data_prep_train(train_seq[s], detections, images_path, frames_look_back, total_frames[s], most_recent_frame_back,
-        #                                 graph_jump, current_frame_train, current_frame_valid[s], distance_limit, fps[s], "training")
-        #         data_list_train = data_list_train + list
-        # with open('/workspace/research_code/data/data_train.data', 'wb') as filehandle:
-        #     pickle.dump(data_list_train, filehandle)
-        # print("Saved to pickle file \n")
-        # print('Validation Data')
-        # data_list_valid = []
-        # for s in range(len(valid_seq)):
-        #     for d in range(len(detector)):
-        #         print('Sequence: ' + valid_seq[s])
-        #         detections, images_path = get_data([valid_seq[s], detector[d]], "training")
-        #         list = data_prep_train(valid_seq[s], detections, images_path, frames_look_back, total_frames[s], most_recent_frame_back,
-        #                                 graph_jump, current_frame_train, current_frame_valid[s], distance_limit, fps[s], "validation")
-        #         data_list_valid = data_list_valid + list
-        # with open('/workspace/research_code/data/data_valid.data', 'wb') as filehandle:
-        #     pickle.dump(data_list_valid, filehandle)
-        # print("Saved to pickle file \n")
+        print('\n')
+        print('Training Data')
+        data_list_train = []
+        for s in range(len(train_seq)):
+            for d in range(len(detector)):
+                print('Sequence: ' + train_seq[s])
+                detections, images_path = get_data([train_seq[s], detector[d]], "training")
+                list = data_prep_train(train_seq[s], detections, images_path, frames_look_back, total_frames[s], most_recent_frame_back,
+                                        graph_jump, current_frame_train, current_frame_valid[s], distance_limit, fps[s], "training")
+                data_list_train = data_list_train + list
+        with open('./data/data_train.data', 'wb') as filehandle:
+            pickle.dump(data_list_train, filehandle)
+        print("Saved to pickle file \n")
+        print('Validation Data')
+        data_list_valid = []
+        for s in range(len(valid_seq)):
+            for d in range(len(detector)):
+                print('Sequence: ' + valid_seq[s])
+                detections, images_path = get_data([valid_seq[s], detector[d]], "training")
+                list = data_prep_train(valid_seq[s], detections, images_path, frames_look_back, total_frames[s], most_recent_frame_back,
+                                        graph_jump, current_frame_train, current_frame_valid[s], distance_limit, fps[s], "validation")
+                data_list_valid = data_list_valid + list
+        with open('./data/data_valid.data', 'wb') as filehandle:
+            pickle.dump(data_list_valid, filehandle)
+        print("Saved to pickle file \n")
 
         # Option 2: If data graph built, just import files
-        with open('/workspace/research_code/data/data_train.data', 'rb') as filehandle:
-            data_list_train = pickle.load(filehandle)
-        print("Loaded training pickle files")
-        with open('/workspace/research_code/data/data_valid.data', 'rb') as filehandle:
-            data_list_valid = pickle.load(filehandle)
-        print("Loaded validation pickle files")
-        #Load and train
-        model_training(data_list_train, data_list_valid, epochs, acc_epoch, acc_epoch2, save_model_epochs, validation_epochs, batchsize, "logfile", load_checkpoint)
+        # with open('./data/data_train.data', 'rb') as filehandle:
+        #     data_list_train = pickle.load(filehandle)
+        # print("Loaded training pickle files")
+        # with open('./data/data_valid.data', 'rb') as filehandle:
+        #     data_list_valid = pickle.load(filehandle)
+        # print("Loaded validation pickle files")
+        # #Load and train
+        # model_training(data_list_train, data_list_valid, epochs, acc_epoch, acc_epoch2, save_model_epochs, validation_epochs, batchsize, "logfile", load_checkpoint)
 
     elif args.type == 'test':
 

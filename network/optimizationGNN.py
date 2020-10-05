@@ -12,8 +12,8 @@ import torch
 class optimNet(nn.Module):
     def __init__(self):
         super(optimNet, self).__init__()
-        self.conv1 = GCNConv(1024, 512, improved=False, cached=False, bias=True, normalize=True)
-        self.conv2 = GCNConv(512, 128, improved=False, cached=False, bias=True, normalize=True)
+        self.conv1 = GCNConv(1024, 512, improved=False, cached=False, bias=True)
+        self.conv2 = GCNConv(512, 128, improved=False, cached=False, bias=True)
         self.mlp1 = nn.Sequential(
             nn.Linear(1024, 1), #loads features from two nodes and features of their edge (edge of interest)
             nn.ReLU()

@@ -6,17 +6,19 @@ The method has been tested on MOT16 & 17 Datasets performing at [57% MOTA](https
 
 ## Installing & Preparation:
 
-* Install docker from its website.
+* Install singularity following instructions from its [website](https://sylabs.io/guides/3.0/user-guide/quick_start.html#quick-installation-steps).
 
 * Git clone this repo folder and cd to it.
 
-* docker build -t gcnnmatch .
+* "sudo singularity build geometric.sif singularity". Follow instructions from [pytorch-geometric](https://github.com/rusty1s/pytorch_geometric/tree/master/docker) to change settings if needed for your system.
 
-* docker run -it --rm --gpus=all -v /local_repo_folder:/workspace gcnnmatch bash
+* Download MOT17 Dataset from [MOT website](https://motchallenge.net/data/MOT17/) and place it in a folder /MOT_dataset. 
 
-Place MOT17 Dataset after download from [MOT website](https://motchallenge.net/data/MOT17/) and specify its location in tracking.py->get_data(). 
+* "mkdir overlay". It will allow you to install additional packages if needed in the future.
 
-The following need to be run after "docker run", once you are inside the docker container.
+* "sudo singularity run --nv -B /MOT_dataset/:/data --overlay overlay/geometric.sif"
+
+* "./create_folders.sh"
 
 ## Training:
 
@@ -24,7 +26,7 @@ The following need to be run after "docker run", once you are inside the docker 
 
 * Result: Training will start and save the trained models in /models. Settings can be changed in tracking.py
 
-## Testing
+## Testing:
 
 * Specify which trained model to use in tracking.py. A trained model can be found [here](https://drive.google.com/drive/folders/1b0ZF7WAQFIXv6xydyU3OGGBW-7EhegSv?usp=sharing).
 
@@ -32,4 +34,4 @@ The following need to be run after "docker run", once you are inside the docker 
 
 * Result: Testing will start and produce txt files and videos saved in /output. Settings can be changed in tracking.py
 
-For Benchmark evaluation the pree-processed with Tracktor detection files from [this repo](https://github.com/dvl-tum/mot_neural_solver) were used.
+For Benchmark evaluation the pre-processed with Tracktor detection files from [this repo](https://github.com/dvl-tum/mot_neural_solver) were used.
