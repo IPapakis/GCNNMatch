@@ -16,7 +16,7 @@ The method has been tested on MOT16 & 17 Datasets performing at [57% MOTA](https
 
 * "mkdir overlay". It will allow you to install additional packages if needed in the future.
 
-* "sudo singularity run --nv -B /MOT_dataset/:/data --overlay overlay/geometric.sif"
+* "sudo singularity run --nv -B /MOT_dataset/:/data --overlay overlay/ geometric.sif"
 
 * "./create_folders.sh"
 
