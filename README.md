@@ -1,4 +1,4 @@
-# GCNNMatch-Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization
+# GCNNMatch- Under construction repo
 
 This repository is the official code implementation of the paper GCNNMatch: [Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization](https://arxiv.org/abs/2010.00067). 
 
@@ -24,7 +24,7 @@ The method has been tested on MOT16 & 17 Datasets performing at [57% MOTA](https
 
 * Command: ./train.sh
 
-* Result: Training will start and save the trained models in /models. Settings can be changed in tracking.py
+* Result: Training will start and save the trained models in /models. Settings can be changed in tracking.py.
 
 ## Testing:
 

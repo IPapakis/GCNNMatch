@@ -27,8 +27,8 @@ if __name__ == "__main__":
         # initialize training settings
         batchsize = 2 # specify how many graphs to use at each batch
         epochs = 4 # at how many epochs to stop
-        load_checkpoint= './models/epoch_2.pth' # None or specify .pth file to continue training
-        validation_epochs= 3 # epoch interval for validation
+        load_checkpoint= None#'./models/epoch_2.pth' # None or specify .pth file to continue training
+        validation_epochs= 4 # epoch interval for validation
         acc_epoch = epochs # at which epoch to calculate training accuracy
         acc_epoch2 = epochs # at which epoch to calculate validation accuracy
         save_model_epochs = 1 # epoch interval to save the model
@@ -37,7 +37,7 @@ if __name__ == "__main__":
         frames_look_back = 30  # a second limit that is used to use tracklets for matching in frames between frames_look_back and most_recent_frame_back,
                                 # min value=1 -> take only previous frame
         # example: if current frame= 60, tracklets used randomly from t1= 30 to 59, also tracklets used till t1-30
-        graph_jump = 500  # how many frames to move the current frame forward, min value=1 -> move to the next frame
+        graph_jump = 5  # how many frames to move the current frame forward, min value=1 -> move to the next frame
         distance_limit = 250 # objects within that pixel distance can be associated 
 
         # MOT17 specific settings
@@ -83,8 +83,8 @@ if __name__ == "__main__":
         # with open('./data/data_valid.data', 'rb') as filehandle:
         #     data_list_valid = pickle.load(filehandle)
         # print("Loaded validation pickle files")
-        # #Load and train
-        # model_training(data_list_train, data_list_valid, epochs, acc_epoch, acc_epoch2, save_model_epochs, validation_epochs, batchsize, "logfile", load_checkpoint)
+        #Load and train
+        model_training(data_list_train, data_list_valid, epochs, acc_epoch, acc_epoch2, save_model_epochs, validation_epochs, batchsize, "logfile", load_checkpoint)
 
     elif args.type == 'test':
 

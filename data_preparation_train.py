@@ -14,7 +14,6 @@ def data_prep_train(sequence, detections, images_path, frames_look_back, total_f
         total_frames= np.max(detections[:,0]) #change only if you want a subset of the total frames
     detections= sorted(detections, key = lambda x: x[0])
     data_list = []
-    edges_number_list= []
     acceptable_object_types= [1,2,7] # MOT specific types
     if type=="training":
         total_frames= current_frame_valid

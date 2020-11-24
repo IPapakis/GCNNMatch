@@ -31,13 +31,12 @@ class completeNet(nn.Module):
         # device = torch.device('cuda')
         x, coords_original, edge_index, ground_truth, coords, edges_number_list, frame, track_num, detections_num= \
             data.x, data.coords_original, data.edge_index, data.ground_truth, data.coords, data.edges_number, data.frame, data.track_num, data.det_num
-        slack= torch.Tensor([0.2]).float().cuda()
+        slack= torch.Tensor([-0.2]).float().cuda()
         lam= torch.Tensor([5]).float().cuda()
         #Pass through GNN
         node_embedding= self.cnn(x)
         edge_embedding = []
         edge_mlp= []
-        edge_mlp2 = []
         for i in range(len(edge_index[0])):
             #CNN features
             x1 = self.affinity_appearance_net(torch.cat((node_embedding[edge_index[0][i]], node_embedding[edge_index[1][i]]), 0))
@@ -50,6 +49,7 @@ class completeNet(nn.Module):
             #pass through mlp
             inputs = torch.cat((x1.reshape(1), x2.reshape(1)), 0)
             edge_embedding.append(self.affinity_net(inputs))
+        # print(edge_embedding)
         edge_embedding= torch.stack(edge_embedding)
         output = self.optim_net(node_embedding, edge_embedding, edge_index, coords, frame)
         output_temp= []
@@ -62,7 +62,6 @@ class completeNet(nn.Module):
         start1= 0
         start2 = 0 #two are used here because output is already reduced while edges not
         normalized_output= []
-        cosines_list = []
         tracklet_num = []
         det_num = []
         for i,j in enumerate(data.idx):
