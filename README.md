@@ -2,8 +2,6 @@
 
 This repository is the official code implementation of the paper GCNNMatch: [Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization](https://arxiv.org/abs/2010.00067). 
 
-The method has been tested on MOT17 Dataset performing at [57% MOTA](https://motchallenge.net/method/MOT=3392&chl=10).
-
 ## Installing & Preparation:
 
 * Install singularity following instructions from its [website](https://sylabs.io/guides/3.0/user-guide/quick_start.html#quick-installation-steps).
