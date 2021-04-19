@@ -2,6 +2,18 @@
 
 This repository is the official code implementation of the paper GCNNMatch: [Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization](https://arxiv.org/abs/2010.00067). 
 
+## Citing:
+If you find this paper or code useful, please cite using the following:
+
+```
+@article{papakis2020gcnnmatch,
+  title={GCNNMatch: Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization},
+  author={Papakis, Ioannis and Sarkar, Abhijit and Karpatne, Anuj},
+  journal={arXiv preprint arXiv:2010.00067},
+  year={2020}
+}
+```
+
 ## Installing & Preparation:
 
 * Install singularity following instructions from its [website](https://sylabs.io/guides/3.0/user-guide/quick_start.html#quick-installation-steps).
