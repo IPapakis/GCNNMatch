@@ -1,6 +1,6 @@
 # GCNNMatch: Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization
 
-This repository is the official code implementation of the paper [GCNNMatch: Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization](https://arxiv.org/abs/2010.00067). Link to access a new traffic vehicle monitoring dataset named "VA Beach Traffic Dataset" will be provided here.
+This repository is the official code implementation of the pre-print paper [GCNNMatch: Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization](https://arxiv.org/abs/2010.00067). Link to access a new traffic vehicle monitoring dataset named "VA Beach Traffic Dataset" will be provided here.
 
 ## Citing:
 If you find this paper or code useful, please cite using the following:
