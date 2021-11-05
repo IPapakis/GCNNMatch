@@ -3,7 +3,20 @@
 This repository is the official code implementation of the GCNNMatch: Graph Convolutional Neural Networks for Multi-Object Tracking via Sinkhorn Normalization on [IEEE](https://ieeexplore.ieee.org/document/9564655) and on [Arxiv](https://arxiv.org/abs/2010.00067). Link to access a new traffic vehicle monitoring dataset named "VA Beach Traffic Dataset" will be provided here.
 
 ## Citing:
-If you find this paper or code useful, please cite using the following:
+If you find this paper or code useful, please cite using the following on IEEE:
+
+```
+@inproceedings{papakis2021graph,
+  title={A Graph Convolutional Neural Network Based Approach for Traffic Monitoring Using Augmented Detections with Optical Flow},
+  author={Papakis, Ioannis and Sarkar, Abhijit and Karpatne, Anuj},
+  booktitle={2021 IEEE International Intelligent Transportation Systems Conference (ITSC)},
+  pages={2980--2986},
+  year={2021},
+  organization={IEEE}
+}
+```
+
+or on Arxiv:
 
 ```
 @article{papakis2020gcnnmatch,
